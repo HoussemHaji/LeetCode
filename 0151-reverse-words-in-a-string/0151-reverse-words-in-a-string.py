@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        s = s.strip()
+        
         list = s.split(" ")
         result = ""
         for ele in list :

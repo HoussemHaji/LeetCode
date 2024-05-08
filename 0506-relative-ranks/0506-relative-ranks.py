@@ -5,19 +5,25 @@ class Solution(object):
         :rtype: List[str]
         """
         
-        tmp = [0]*len(score)
-        ranks =  ["Gold Medal","Silver Medal","Bronze Medal"]
+        rank = [""] * len(score)
+        tmp = score
+        score_to_idx= {}
         for i in range(len(score)):
-            current_max = max(score)
-            print(current_max)
-            print(score.index(current_max))
-            if i<3:
-                tmp[score.index(current_max)]= ranks[0]
-                score[score.index(current_max)] = -1
-                ranks.pop(0)
-            else :
-                tmp[score.index(current_max)] = str(i+1)
-                score[score.index(current_max)] = -1
-                
-                
-        return tmp
+            score_to_idx[score[i]] = i
+        
+        tmp.sort(reverse = True)
+        
+        for i in range(len(score)):
+            if i == 0 :
+                rank[score_to_idx[tmp[i]]] = "Gold Medal"
+            elif i == 1 :
+                 rank[score_to_idx[tmp[i]]] = "Silver Medal"
+            elif i == 2 :
+                 rank[score_to_idx[tmp[i]]] = "Bronze Medal"
+            else:
+                 rank[score_to_idx[tmp[i]]] = str(i+1)
+        
+        return rank
+        
+            
+            

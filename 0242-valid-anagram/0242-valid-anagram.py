@@ -6,7 +6,23 @@ class Solution(object):
         :rtype: bool
         """
         
-        s_sorted = ''.join(sorted(s))
-        t_sorted = ''.join(sorted(t))    
+        if len(s)!= len(t):
+            return False
         
-        return s_sorted == t_sorted
+        dict = {}
+        
+        for c in s :
+            if not(c in dict.keys()) :
+                dict[c] = 1
+            else :
+                dict[c] += 1
+                
+        for c in t:
+            if c not in dict.keys():
+                return False
+            if dict[c] == 0 :
+                return False
+            
+            dict[c] -= 1
+            
+        return True

@@ -5,12 +5,14 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for i, num in enumerate(nums):
-            if target - num in nums[i+1:]:
-                return [i, nums.index(target - num, i+1)]
-        return None
-
         
-
-
+        prevMap = {}
+        
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            
+            prevMap[n] = i
+       
         

@@ -5,24 +5,14 @@ class Solution(object):
         :rtype: bool
         """
         
-        nums.sort()
+        hashset = set()
         
-        res = False
-        
-        if(len(nums)<=1):
-            return False
-        
-        i=0
-        
-        while(i<len(nums)-1):
-            left = nums[i]
-            right = nums[i+1]
-            if left == right :
+        for e in nums:
+            if e in hashset : 
                 return True
             
-            i = i+1
-
-            
+            hashset.add(e)
+        
         return False
             
             

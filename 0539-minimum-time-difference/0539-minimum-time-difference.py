@@ -1,5 +1,9 @@
-class Solution:
-    def findMinDifference(self, timePoints: List[str]) -> int:
+class Solution(object):
+    def findMinDifference(self, timePoints):
+        """
+        :type timePoints: List[str]
+        :rtype: int
+        """
         for i,e in enumerate(timePoints) :
             timePoints[i] = int(e.split(":")[0])*60 + int(e.split(":")[1])
             
@@ -16,7 +20,4 @@ class Solution:
         
         return currMin
         
-        
-            
-            
         
